@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  linebotsample:
+    image: linebotsample
+    build:
+      context: .
+      dockerfile: src/LineBotSample/Dockerfile
