@@ -45,7 +45,8 @@ namespace LineBotSample
                 .AddSingleton<LineBotService>();
 
             services
-                .AddSingleton<ILineEventHandler, MessageEventHandler>();
+                .AddSingleton<ILineEventHandler, MessageEventHandler>()
+                .AddSingleton<ILineEventHandler, FollowEventHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
