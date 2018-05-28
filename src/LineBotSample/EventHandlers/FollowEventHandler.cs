@@ -21,13 +21,10 @@ namespace LineBotSample.EventHandlers
 {
     public class FollowEventHandler : ILineEventHandler
     {
-        private readonly LineBotSampleConfiguration configuration;
-
         public LineEventType EventType => LineEventType.Follow;
 
-        public FollowEventHandler(LineBotSampleConfiguration configuration)
+        public FollowEventHandler()
         {
-            this.configuration = configuration;
         }
 
         public async Task Handle(ILineBot lineBot, ILineEvent evt)
@@ -40,9 +37,6 @@ namespace LineBotSample.EventHandlers
                 userName = $"{user.DisplayName} ({user.UserId})";
             }
             catch (LineBotException)
-            {
-            }
-            catch (Exception)
             {
             }
 
