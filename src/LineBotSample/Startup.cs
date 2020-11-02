@@ -12,15 +12,16 @@
 // License for the specific language governing permissions and limitations
 // under the License.
 
+using System.IO;
+using Line;
+using LineBotSample.Configuration;
+using LineBotSample.EventHandlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Line;
-using LineBotSample.EventHandlers;
-using LineBotSample.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
-using System.IO;
+using Microsoft.Extensions.Hosting;
 
 namespace LineBotSample
 {
@@ -49,7 +50,7 @@ namespace LineBotSample
                 .AddSingleton<ILineEventHandler, FollowEventHandler>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             var lineConfiguration = (LineConfiguration)app.ApplicationServices.GetRequiredService<ILineConfiguration>();
             _configuration.Bind("LineConfiguration", lineConfiguration);
