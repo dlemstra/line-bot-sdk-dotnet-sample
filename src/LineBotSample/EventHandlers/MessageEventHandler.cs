@@ -23,7 +23,8 @@ namespace LineBotSample.EventHandlers
     {
         private readonly LineBotSampleConfiguration configuration;
 
-        public LineEventType EventType => LineEventType.Message;
+        public LineEventType EventType
+            => LineEventType.Message;
 
         public MessageEventHandler(LineBotSampleConfiguration configuration)
         {

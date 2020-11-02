@@ -12,20 +12,15 @@
 // License for the specific language governing permissions and limitations
 // under the License.
 
-using System;
 using System.Threading.Tasks;
 using Line;
-using LineBotSample.Configuration;
 
 namespace LineBotSample.EventHandlers
 {
     public class FollowEventHandler : ILineEventHandler
     {
-        public LineEventType EventType => LineEventType.Follow;
-
-        public FollowEventHandler()
-        {
-        }
+        public LineEventType EventType
+            => LineEventType.Follow;
 
         public async Task Handle(ILineBot lineBot, ILineEvent evt)
         {
