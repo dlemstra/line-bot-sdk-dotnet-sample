@@ -25,7 +25,7 @@ namespace LineBotSample
         public async Task LogApiCall(Uri uri, HttpContent httpContent)
         {
             var postedData = string.Empty;
-            if (httpContent == null)
+            if (httpContent != null)
             {
                 var bytes = await httpContent.ReadAsByteArrayAsync();
                 postedData = $"PostedData: {Encoding.UTF8.GetString(bytes)}{Environment.NewLine}";
